@@ -4,7 +4,7 @@ URL 　https://m-mitoma.github.io/memo1-app/
 
 工数　 3時間（平日の夜30分ずつ設計や使う技術の選定、実装手順を整理、土曜日にコードを実装）
 
-技術スタック　 React,Vite,TypeScript,LocalStorage
+技術スタック　 React,TypeScript,Vite,LocalStorage
 
 【備考】
 

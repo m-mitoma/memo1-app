@@ -1,8 +1,10 @@
+// vite.config.ts (または .js)
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-const REPO_NAME = "/memo1-app/";
-// https://vite.dev/config/
+
 export default defineConfig({
   plugins: [react()],
-  base: REPO_NAME,
+  base: "/memo1-app/", // ここにリポジトリ名を追加！
+  // または本番環境でのみ適用するなら
+  // base: process.env.NODE_ENV === 'production' ? '/memo1-app/' : '/',
 });

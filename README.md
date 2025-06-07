@@ -8,7 +8,7 @@ https://m-mitoma.github.io/memo1-app/
 
 2 時間
 
-・備考
+【備考】
 
 typescript を導入
 

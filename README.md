@@ -2,7 +2,7 @@
 
 URL 　https://m-mitoma.github.io/memo1-app/
 
-工数　 2 時間
+工数　 3 時間（平日の夜 30 分ずつ設計や使う技術の選定、実装手順を整理、土曜日にコードを実装）
 
 技術スタック　 React, Vite, TypeScript, LocalStorage
 
@@ -15,3 +15,5 @@ typescript を導入
 複数のクラス属性を付与
 
 メモが 1 件の時ボーダーと下余白を消す専用のクラスを三項演算子で定義
+
+ビルド → デプロイ →GitHub Pages への公開を学べました

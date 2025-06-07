@@ -1,14 +1,16 @@
 簡易メモアプリローカルストレージ版
 
-URL 　https://m-mitoma.github.io/memo1-app/
+【URL】
 
-工数
+https://m-mitoma.github.io/memo1-app/
+
+【工数】
 
 平日の夜30分ずつ設計や使う技術の選定、実装手順を整理、
 
 土曜日3時間でコードを実装
 
-技術スタック
+【技術スタック】
 
 React(バージョン19.1.0),TypeScript(バージョン~5.8.3),Vite(バージョン6.3.5)
 

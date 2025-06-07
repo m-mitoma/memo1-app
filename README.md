@@ -16,7 +16,7 @@ ESLint(バージョン 9.28.0),Prettier(vscode拡張機能)
 
 VisualStudioCode,gh-pages(バージョン 6.3.0)
 
-【備考】
+【工夫した点】
 
 TypeScriptを導入（リファクタリング）
 
@@ -27,5 +27,7 @@ TypeScriptを導入（リファクタリング）
 メモが1件の時ボーダーと下余白を消す専用のクラスを三項演算子で定義
 
 【苦労した点】
+
 2回目でTypeScriptを導入しました。
+
 interfaceなど初めて利用しましたが記法を学びました。

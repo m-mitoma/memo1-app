@@ -1,5 +1,9 @@
 簡易メモアプリローカルストレージ版
 
+このアプリは、ブラウザのローカルストレージを利用した簡易メモアプリです。
+
+メモの追加、表示、削除といった基本的な操作を提供しています。
+
 【URL】
 
 https://m-mitoma.github.io/memo1-app/
@@ -14,11 +18,11 @@ https://m-mitoma.github.io/memo1-app/
 
 React(バージョン19.1.0),TypeScript(バージョン~5.8.3),Vite(バージョン6.3.5)
 
-ESLint(バージョン 9.28.0),Prettier(vscode拡張機能)
+ESLint(バージョン 9.28.0),Prettier(VS Code拡張機能を通じてコード整形に活用)
 
 VisualStudioCode,gh-pages(バージョン 6.3.0)
 
-【工夫した点】
+【実装上の工夫】
 
 TypeScriptを導入（リファクタリング）
 
@@ -28,7 +32,7 @@ TypeScriptを導入（リファクタリング）
 
 メモが1件の時ボーダーと下余白を消す専用のクラスを三項演算子で定義
 
-【苦労した点】
+【得られた学び / 挑戦した点】
 
 2回目でTypeScriptを導入しました。
 

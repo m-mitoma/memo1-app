@@ -18,7 +18,7 @@ VisualStudioCode,gh-pages(バージョン 6.3.0)
 
 【備考】
 
-TypeScriptを導入
+TypeScriptを導入（リファクタリング）
 
 メモがゼロ件の時は短絡評価で一覧と削除ボタンを非表示処理
 
@@ -26,5 +26,6 @@ TypeScriptを導入
 
 メモが1件の時ボーダーと下余白を消す専用のクラスを三項演算子で定義
 
-実務ではAzureDevOpsを利用していますが、
-GitHubPagesを用いたビルドからデプロイ、公開までの一連の流れを学べました。
+【苦労した点】
+2回目でTypeScriptを導入しました。
+interfaceなど初めて利用しましたが記法を学びました。

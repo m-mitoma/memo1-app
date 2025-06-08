@@ -20,7 +20,7 @@ https://m-mitoma.github.io/memo1-app/
 
 React(バージョン19.1.0),TypeScript(バージョン~5.8.3),Vite(バージョン6.3.5)
 
-ESLint(バージョン 9.28.0),Prettier(VS Code拡張機能を通じてコード整形に活用)
+ESLint(バージョン 9.28.0),Prettier(バージョン 3.5.3)
 
 VisualStudioCode,gh-pages(バージョン 6.3.0)
 

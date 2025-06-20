@@ -38,7 +38,7 @@ https://memo1-app.vercel.app/
 
 ・並び替え機能を実装
 
-・react-paginateでページャーを実装
+・react-paginateでページャーを実装(6件以上で表示)
 
 【得られた学び / 挑戦した点】
 

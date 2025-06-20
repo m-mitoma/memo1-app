@@ -1,7 +1,15 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tsbuildinfo",
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler", // または "node"
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noEmit": true,
+    "types": ["node"] // ★この行を追加または確認★
+    // "lib": ["ESNext", "DOM"] // 必要に応じて追加。通常、Node.js環境では不要なことが多いが、consoleエラーが続くなら検討。
+  },
+  "include": ["vite.config.ts", "vitest.config.ts"] // ★vite.config.ts が含まれているか確認★
 }

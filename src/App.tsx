@@ -12,7 +12,14 @@ type SortOrder = 'asc' | 'desc';
 const App = () => {
   const [memos, setMemos] = useState<Memo[]>(() => {
     const savedMemos = localStorage.getItem('memos');
-    return savedMemos ? JSON.parse(savedMemos) : [];
+    if (savedMemos) {
+      const parsedMemos: Memo[] = JSON.parse(savedMemos);
+      return parsedMemos.map((memo) => ({
+        ...memo,
+        id: typeof memo.id === 'string' ? parseInt(memo.id, 10) : memo.id,
+      }));
+    }
+    return [];
   });
 
   const [filter, setFilter] = useState<string>('');
@@ -27,14 +34,13 @@ const App = () => {
   }, [memos]);
 
   const addMemo = (newMemoData: Omit<Memo, 'id' | 'date'>) => {
+    const newId =
+      memos.length > 0 ? Math.max(...memos.map((memo) => memo.id)) + 1 : 1;
     const newMemo: Memo = {
-      id: (memos.length > 0
-        ? Math.max(...memos.map((memo) => parseInt(memo.id, 10))) + 1
-        : 1
-      ).toString(),
+      id: newId,
       title: newMemoData.title,
       content: newMemoData.content,
-      date: new Date().toISOString().split('T')[0],
+      date: new Date().toISOString(),
     };
     setMemos((prevMemos) => [...prevMemos, newMemo]);
   };
@@ -43,6 +49,14 @@ const App = () => {
     if (window.confirm('全てのメモを削除してもよろしいですか？')) {
       setMemos([]);
       setCurrentPage(0);
+    }
+  };
+  const handleSortClick = (field: SortField) => {
+    if (sortField === field) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortField(field);
+      setSortOrder(field === 'date' ? 'desc' : 'asc');
     }
   };
 
@@ -62,9 +76,9 @@ const App = () => {
         const dateB = new Date(bValue as string).getTime();
         return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
       } else if (sortField === 'id') {
-        const idA = parseInt(aValue as string, 10);
-        const idB = parseInt(bValue as string, 10);
-        return sortOrder === 'asc' ? idA - idB : idB - idA;
+        return sortOrder === 'asc'
+          ? (aValue as number) - (bValue as number)
+          : (bValue as number) - (aValue as number);
       } else {
         const compareResult = (aValue as string).localeCompare(
           bValue as string,
@@ -88,6 +102,13 @@ const App = () => {
     setCurrentPage(event.selected);
   };
 
+  const getSortIndicator = (field: SortField) => {
+    if (sortField === field) {
+      return sortOrder === 'asc' ? ' ▲' : ' ▼';
+    }
+    return '';
+  };
+
   return (
     <div className="app-container">
       <h1>簡易メモアプリ</h1>
@@ -96,52 +117,22 @@ const App = () => {
       <MemoFilter filter={filter} setFilter={setFilter} />
       <div className="sort-buttons">
         <button
-          onClick={() => {
-            setSortField('id');
-            setSortOrder('asc');
-          }}
+          onClick={() => handleSortClick('id')}
+          className={sortField === 'id' ? 'active-sort' : ''}
         >
-          ID (昇順)
+          ID{getSortIndicator('id')}
         </button>
         <button
-          onClick={() => {
-            setSortField('id');
-            setSortOrder('desc');
-          }}
+          onClick={() => handleSortClick('title')}
+          className={sortField === 'title' ? 'active-sort' : ''}
         >
-          ID (降順)
+          タイトル{getSortIndicator('title')}
         </button>
         <button
-          onClick={() => {
-            setSortField('title');
-            setSortOrder('asc');
-          }}
+          onClick={() => handleSortClick('date')}
+          className={sortField === 'date' ? 'active-sort' : ''}
         >
-          タイトル (昇順)
-        </button>
-        <button
-          onClick={() => {
-            setSortField('title');
-            setSortOrder('desc');
-          }}
-        >
-          タイトル (降順)
-        </button>
-        <button
-          onClick={() => {
-            setSortField('date');
-            setSortOrder('asc');
-          }}
-        >
-          日付 (昇順)
-        </button>
-        <button
-          onClick={() => {
-            setSortField('date');
-            setSortOrder('desc');
-          }}
-        >
-          日付 (降順)
+          日付{getSortIndicator('date')}
         </button>
       </div>
       <hr />

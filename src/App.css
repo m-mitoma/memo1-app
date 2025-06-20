@@ -1,78 +1,225 @@
 body {
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: #f5f5f5;
   padding: 20px;
   min-width: 100%;
+  box-sizing: border-box;
 }
 h1 {
   text-align: center;
 }
 h2 {
   text-align: center;
-}
+} /* src/App.css */
 .app-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  background: #fff;
 }
 
-.memo-form,
-.memo-list {
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+h1,
+h2 {
+  text-align: center;
+  color: #333;
   margin-bottom: 20px;
 }
 
-.memo-form input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #cccccc;
-  box-sizing: border-box;
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
 }
 
-.memo-form button,
-.app-container button {
-  background-color: #007bff;
+/* MemoForm styles */
+.memo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center; /* 中央寄せ */
+}
+
+.memo-input,
+.memo-textarea {
+  width: 80%; /* 幅を調整 */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.memo-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.add-memo-button {
+  padding: 10px 20px;
+  background-color: #28a745; /* 緑色 */
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
+  border-radius: 4px;
   cursor: pointer;
-  width: max-content;
-  margin: 0 auto;
-  display: flex;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-.memo-form button:hover,
-.app-container button:hover {
-  background-color: #0056b3;
+.add-memo-button:hover {
+  background-color: #218838;
 }
 
-.memo-list ul {
-  padding: 0;
+/* MemoFilter styles */
+.memo-filter {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-.memo-list li {
-  list-style-type: none;
+.filter-input {
   padding: 10px;
-  border-bottom: 1px solid #cccccc;
+  width: 70%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
 }
-.memo-list li.last-item,
-.memo-list li.single-item {
-  border-bottom: none;
-  padding-bottom: 0;
+
+/* Sort buttons styles */
+.sort-buttons {
+  display: flex;
+  flex-wrap: wrap; /* ボタンが多ければ折り返す */
+  justify-content: center;
+  gap: 8px; /* ボタン間のスペース */
+  margin-bottom: 20px;
 }
-.app-container button.clearmemos {
-  background: none;
+
+.sort-buttons button {
+  padding: 8px 15px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.sort-buttons button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.sort-buttons button:disabled {
+  background-color: #cccccc;
+  border-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* MemoList styles */
+.memo-list {
+  min-height: 250px; /* ページの切り替え時にレイアウトが崩れないように最小高さを設定 */
+  margin-bottom: 20px;
+}
+
+.memo-item {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.memo-item h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #007bff;
+}
+
+.memo-item p {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.memo-item p:last-child {
+  margin-bottom: 0;
+}
+
+.no-memos-message {
+  text-align: center;
+  color: #777;
+  padding: 20px;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
   padding: 0;
-  margin: 0 0 0 auto;
-  color: black;
-  text-decoration: underline;
+  margin-top: 20px;
+  margin-bottom: 20px; /* 削除ボタンとの間隔 */
+  flex-wrap: wrap; /* 小さい画面で改行 */
 }
-.app-container button.clearmemos:hover {
-  opacity: 0.8;
+
+.pagination li {
+  margin: 0 4px;
+}
+
+.pagination li a {
+  display: block;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagination li a:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination li.active a {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  font-weight: bold;
+}
+
+.pagination li.disabled a {
+  color: #ccc;
+  cursor: not-allowed;
+  background-color: #f8f8f8;
+}
+
+.pagination li.break a {
+  cursor: default;
+  background-color: transparent;
+  border-color: transparent;
+  color: #333;
+}
+
+/* Clear Memos Button */
+.clear-memos-button {
+  display: block; /* ブロック要素にして中央寄せしやすくする */
+  margin: 20px auto; /* 中央寄せ */
+  padding: 10px 20px;
+  background-color: #dc3545; /* 赤色 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.clear-memos-button:hover {
+  background-color: #c82333;
 }

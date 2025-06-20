@@ -1,24 +1,32 @@
-interface MemoListProps {
-  memos: string[];
-}
-const MemoList = ({ memos }: MemoListProps) => {
+import React from 'react';
+import { Memo } from '../types';
+
+type MemoListProps = {
+  memos: Memo[];
+};
+const MemoList: React.FC<MemoListProps> = ({ memos }) => {
+  if (memos.length === 0) {
+    return <p className="no-memos-message">表示するメモがありません。</p>;
+  }
   return (
-    <ul className="memo-list">
+    <div className="memo-list">
       {memos.map((memo, index) => {
         const isLastItem: boolean = index === memos.length - 1;
         const isSingleItem: boolean = memos.length === 1;
-        const baseClassName: string = "memo-item";
+        const baseClassName: string = 'memo-item';
         const liClassName: string = `
           ${baseClassName}
-          ${isSingleItem ? "single-item" : ""}
-          ${isLastItem ? "last-item" : ""}`.trim();
+          ${isSingleItem ? 'single-item' : ''}
+          ${isLastItem ? 'last-item' : ''}`.trim();
         return (
-          <li key={index} className={liClassName}>
-            {memo}
-          </li>
+          <div key={memo.id} className={liClassName}>
+            <h3>{memo.title}</h3>
+            <p>日付: {memo.date}</p>
+            <p>{memo.content}</p>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 };
 export default MemoList;

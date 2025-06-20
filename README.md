@@ -8,7 +8,7 @@ React基礎学習後2回目に作ったアプリです。
 
 【URL】
 
-https://m-mitoma.github.io/memo1-app/
+https://memo1-app.vercel.app/
 
 【工数】
 

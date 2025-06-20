@@ -20,7 +20,7 @@ https://memo1-app.vercel.app/
 
 フロントエンド: React, TypeScript, Vite
 
-デプロイ・インフラ: Vercel, GitHub Pages
+デプロイ・インフラ: Vercel
 
 バージョン管理: Git, GitHub
 

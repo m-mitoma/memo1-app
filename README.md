@@ -18,7 +18,7 @@ https://memo1-app.vercel.app/
 
 【技術スタック】
 
-フロントエンド: React, Vite
+フロントエンド: React, TypeScript, Vite
 
 デプロイ・インフラ: Vercel, GitHub Pages
 

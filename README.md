@@ -18,13 +18,17 @@ https://memo1-app.vercel.app/
 
 【技術スタック】
 
-React(バージョン19.1.0),TypeScript(バージョン~5.8.3),Vite(バージョン6.3.5)
+フロントエンド: React, Vite
 
-ESLint(バージョン 9.28.0),Prettier(バージョン 3.5.3)
+デプロイ・インフラ: Vercel, GitHub Pages
 
-Vercel,GitHub
+バージョン管理: Git, GitHub
 
-VisualStudioCode
+パッケージ管理: npm
+
+コード品質 / コードフォーマット: ESLint, Prettier
+
+コードエディタ: Visual Studio Code
 
 【実装上の工夫】
 

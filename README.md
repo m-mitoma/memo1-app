@@ -22,7 +22,9 @@ React(バージョン19.1.0),TypeScript(バージョン~5.8.3),Vite(バージョ
 
 ESLint(バージョン 9.28.0),Prettier(バージョン 3.5.3)
 
-VisualStudioCode,gh-pages(バージョン 6.3.0)
+Vercel,GitHub
+
+VisualStudioCode
 
 【実装上の工夫】
 

@@ -154,13 +154,11 @@ const App = () => {
           renderOnZeroPageCount={null}
         />
       )}
-      ;
       {memos.length > 0 && (
         <button onClick={clearMemos} className="clear-memos-button">
           全てのメモを削除
         </button>
       )}
-      ;
     </div>
   );
 };

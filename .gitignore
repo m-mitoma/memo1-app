@@ -24,3 +24,11 @@ dist-ssr
 *.sw?
 .prettierignore
 .vercel
+
+# 追加するファイルとディレクトリ firebase以降後コミット
+Auth.tsx
+PostForm.tsx
+PostList.tsx
+App_firebase.tsx
+env.d.ts
+firebase.ts
